@@ -81,7 +81,7 @@ public class BookService {
         book.setBorrowedStatus(false);
 
         Book savedBook = bookRepository.save(book);
-        return mapToResponse(book);
+        return mapToResponse(savedBook);
     }
 
     public void deleteBook(Long id) {
@@ -91,7 +91,7 @@ public class BookService {
     }
 
     public List<BookResponse> findByAuthor(String author) {
-        return bookRepository.findByAuthor(author).stream().map(this::mapToResponse).toList();
+        return bookRepository.findByAuthorIgnoreCase(author).stream().map(this::mapToResponse).toList();
     }
 
     public List<BookResponse> findAvailableBooks(){

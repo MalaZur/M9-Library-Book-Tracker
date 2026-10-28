@@ -72,12 +72,12 @@ public class BookController {
         return bookService.findByPartialTitle(title);
     }
 
-    @GetMapping("/{id}/borrow")
+    @PostMapping("/{id}/borrow")
     public BookResponse borrowBook(@PathVariable Long id){
         return bookService.borrowBook(id);
     }
 
-    @GetMapping("/{id}/return")
+    @PostMapping("/{id}/return")
     public BookResponse returnBook(@PathVariable Long id) {
         return bookService.returnBook(id);
     }
